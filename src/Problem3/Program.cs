@@ -11,17 +11,25 @@ IEnumerable<long> GetNumbers(long max, long min = 0)
         yield return current++;
 }
 
-bool IsPrime(long number)
-{
-    if (number % 2 == 0)
+bool IsPrime(long number)  
+{  
+    switch (number)  
+    {  
+        case < 2:  
+            return false;  
+        case 2:  
+            return true;
+    }  
+  
+    if (number % 2 == 0)  
         return false;
-    
-    for (var factor = 3; factor < Math.Sqrt(number); factor++)
-    {
-        if (number % factor == 0)
-            return false;
+        
+    for (var factor = 3; factor <= (long)Math.Sqrt(number); factor++)    
+    {    
+        if (number % factor == 0)    
+            return false;    
     }
-
+    
     return true;
 }
 
