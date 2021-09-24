@@ -1,8 +1,5 @@
 ﻿// Project Euler - Problem 11
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using P0011;
 
 
@@ -77,7 +74,9 @@ int[,] GetGrid(string input)
                     var positionX = x + positionIndex * orientation.X;
                     var positionY = y + positionIndex * orientation.Y;
                     
-                    if (positionX < 0 || positionY < 0 || positionX >= grid.GetLength(0) || positionY >= grid.GetLength(1))
+                    if (positionX < 0 || positionY < 0 
+                                      || positionX >= grid.GetLength(0) 
+                                      || positionY >= grid.GetLength(1))
                         break;
 
                     numbers[positionIndex] = grid[positionX, positionY];
@@ -100,4 +99,4 @@ int[,] GetGrid(string input)
 
 var grid = GetGrid(inputString);
 var result = SearchGrid(grid, 4);
-var stop = "test";
+Console.WriteLine($"Project Euler Problem 11: {result.Item2}");
