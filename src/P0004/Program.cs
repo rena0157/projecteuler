@@ -36,4 +36,4 @@ var palindromicNumbers = GetProducts(100, 1000)
     .ToList();
 
 var max = palindromicNumbers.Max();
-Console.WriteLine($"Max: {max}");
+Console.WriteLine($"P0004 Solution: {max}");

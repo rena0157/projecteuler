@@ -33,4 +33,4 @@ const string givenNumber = @"731671765313306249192251196744265747423553491949349
 }
 
 var solution = Solution(givenNumber, 13);
-Console.WriteLine($"Project Euler - Problem 8 Answer: {solution.Value}");
+Console.WriteLine($"P0008 Solution: {solution.Value}");

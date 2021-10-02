@@ -58,4 +58,4 @@ IEnumerable<long> GetPrimeFactors(long number)
 
 var factors = GetPrimeFactors(600_851_475_143);
 var largestFactor = factors.Max();
-Console.WriteLine($"Project Euler - Problem 3 Answer: {largestFactor}");
+Console.WriteLine($"P0003 Solution: {largestFactor}");

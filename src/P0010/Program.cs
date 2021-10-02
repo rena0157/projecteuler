@@ -47,4 +47,4 @@ long Solution(long maxPrime)
 }
 
 var solution = Solution(2_000_000);
-Console.WriteLine(solution);
+Console.WriteLine($"P0010 Solution: {solution}");

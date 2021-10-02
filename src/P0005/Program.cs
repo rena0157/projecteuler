@@ -18,4 +18,4 @@ int Solution(int maxSearchNumber, Range range)
     throw new Exception("No Solution Found");
 }
 
-Console.WriteLine(Solution(int.MaxValue, 1..20));
+Console.WriteLine($"P0005 Solution: {Solution(int.MaxValue, 1..20)}");

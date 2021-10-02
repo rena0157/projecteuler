@@ -22,4 +22,4 @@ IEnumerable<int> GetFibonacci(int max)
 }
 
 var answer = GetFibonacci(givenMaxValue).Where(n => n % 2 == 0).Sum();
-Console.WriteLine($"Project Euler - Problem 2 Answer: {answer}");
+Console.WriteLine($"P0002 Solution: {answer}");

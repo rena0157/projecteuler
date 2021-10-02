@@ -24,4 +24,4 @@
 var factors = GetFactors();
 var product = factors.Item1 * factors.Item2 * factors.Item3;
 
-Console.WriteLine($"Project Euler - Problem 9 Solution: {product}");
+Console.WriteLine($"P0009 Solution: {product}");

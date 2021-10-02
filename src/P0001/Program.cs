@@ -18,4 +18,4 @@ IEnumerable<int> GetNaturalNumbers(int start, int end)
 
 var sum = GetNaturalNumbers(givenStart, givenEnd).Where(n => n % 3 == 0 || n % 5 == 0).Sum();
 
-Console.WriteLine($"Answer: {sum}");
+Console.WriteLine($"P0001 Solution: {sum}");

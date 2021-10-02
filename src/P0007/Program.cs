@@ -34,4 +34,4 @@ var answer = GetNumbers(int.MaxValue)
      .Where(IsPrime)
      .ElementAt(10_000);
 
-Console.WriteLine(answer);
+Console.WriteLine($"P0007 Solution: {answer}");

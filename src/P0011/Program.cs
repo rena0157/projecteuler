@@ -99,4 +99,4 @@ int[,] GetGrid(string input)
 
 var grid = GetGrid(inputString);
 var result = SearchGrid(grid, 4);
-Console.WriteLine($"Project Euler Problem 11: {result.Item2}");
+Console.WriteLine($"P0011 Solution: {result.Item2}");
