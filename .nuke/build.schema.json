@@ -77,9 +77,11 @@
             "enum": [
               "Clean",
               "Compile",
+              "Publish",
               "Restore",
               "Run",
-              "RunAll"
+              "RunAll",
+              "RunTest"
             ]
           }
         },
@@ -95,9 +97,11 @@
             "enum": [
               "Clean",
               "Compile",
+              "Publish",
               "Restore",
               "Run",
-              "RunAll"
+              "RunAll",
+              "RunTest"
             ]
           }
         },

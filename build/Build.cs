@@ -1,11 +1,17 @@
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using GlobExpressions;
 using Nuke.Common;
 using Nuke.Common.CI;
 using Nuke.Common.Execution;
 using Nuke.Common.Git;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
+using Nuke.Common.Tooling;
 using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Utilities.Collections;
 using static Nuke.Common.IO.FileSystemTasks;
@@ -55,6 +61,20 @@ class Build : NukeBuild
                 .EnableNoRestore());
         });
 
+    Target Publish => _ => _
+        .Executes(() =>
+        {
+            DotNetPublish(p => p
+                .SetProject(Solution)
+                .SetConfiguration(Configuration.Release)
+                .EnablePublishSingleFile()
+                .DisableSelfContained()
+                .SetRuntime("win-x64")
+                .SetOutput(OutputDirectory));
+
+            OutputDirectory.GlobFiles("*.pdb").ForEach(DeleteFile);
+        });
+    
     Target Run => _ => _
         .Executes(() =>
         {
@@ -63,17 +83,31 @@ class Build : NukeBuild
                 .SetConfiguration(Configuration.Release));
         });
 
+    
     Target RunAll => _ => _
         .Executes(() =>
         {
-            var projects = Solution.GetSolutionFolder("src")?.Projects;
-            ControlFlow.Assert(projects is not null, "projects is not null");
-
-            Parallel.ForEach(projects, project =>
+            var executables = OutputDirectory.GlobFiles("*.exe");
+            
+            Parallel.ForEach(executables, exe =>
             {
-                DotNetRun(r => r
-                    .SetProjectFile(project)
-                    .SetConfiguration(Configuration.Release));
+                var output = new List<string>();
+                var stopwatch = Stopwatch.StartNew();
+                var p = ProcessTasks.StartProcess(exe, customLogger: (type, s) =>
+                {
+                    output.Add(s);
+                });
+                p.WaitForExit();
+                stopwatch.Stop();
+                Logger.Info($"{output.FirstOrDefault()} completed in {stopwatch.ElapsedMilliseconds}ms");
             });
+
+        });
+
+    Target RunTest => _ => _
+        .DependsOn(Publish)
+        .Executes(() =>
+        {
+            
         });
 }
