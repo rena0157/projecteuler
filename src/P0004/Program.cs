@@ -1,9 +1,5 @@
 ﻿// Project Euler - Problem 4
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 string ReverseString(string input)
 {
     return string.Create(input.Length, input, (chars, state) =>

@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 (int, int, int) GetFactors()
 {
     for (var a = 1; a < 1000; a++)

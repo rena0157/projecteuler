@@ -1,5 +1,5 @@
 ﻿// Project Euler - Problem 11
-using System;
+
 using P0011;
 
 

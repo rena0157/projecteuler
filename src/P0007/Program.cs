@@ -1,9 +1,5 @@
 ﻿// Project Euler - Problem 7
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 bool IsPrime(int number)
 {
     switch (number)

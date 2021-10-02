@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿
 IEnumerable<long> GetNumbers(long max)    
 {    
     var current = 0;    

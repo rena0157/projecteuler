@@ -1,8 +1,5 @@
 ﻿// Project Euler - Problem 5
 
-using System;
-using System.Linq;
-
 bool IsDivisableBy(int number, params int[] divisors)
 {
     return divisors.All(divisor => number % divisor == 0);

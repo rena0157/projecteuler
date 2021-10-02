@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-// Project Euler - Problem 3
+﻿// Project Euler - Problem 3
 
 IEnumerable<long> GetNumbers(long max, long min = 0)
 {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-// Project Euler Problem 2
+﻿// Project Euler Problem 2
 
 const int givenMaxValue = 4_000_000;
 
