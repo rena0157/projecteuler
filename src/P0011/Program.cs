@@ -56,10 +56,10 @@ int[,] GetGrid(string input)
         new GridLocation {X = 0, Y = -1},
         new GridLocation {X = 1, Y = -1},
     };
-    
+
     int[] largestSet = new int[searchCount];
     int largestValue = 0;
-    
+
     for (var y = 0; y < grid.GetLength(1); y++)
     {
         for (var x = 0; x < grid.GetLength(0); x++)
@@ -73,9 +73,9 @@ int[,] GetGrid(string input)
                 {
                     var positionX = x + positionIndex * orientation.X;
                     var positionY = y + positionIndex * orientation.Y;
-                    
-                    if (positionX < 0 || positionY < 0 
-                                      || positionX >= grid.GetLength(0) 
+
+                    if (positionX < 0 || positionY < 0
+                                      || positionX >= grid.GetLength(0)
                                       || positionY >= grid.GetLength(1))
                         break;
 
@@ -83,9 +83,9 @@ int[,] GetGrid(string input)
                     product *= grid[positionX, positionY];
                 }
 
-                if (product <= largestValue) 
+                if (product <= largestValue)
                     continue;
-                
+
                 largestSet = numbers;
                 largestValue = product;
             }

@@ -7,25 +7,25 @@ IEnumerable<long> GetNumbers(long max, long min = 0)
         yield return current++;
 }
 
-bool IsPrime(long number)  
-{  
-    switch (number)  
-    {  
-        case < 2:  
-            return false;  
-        case 2:  
+bool IsPrime(long number)
+{
+    switch (number)
+    {
+        case < 2:
+            return false;
+        case 2:
             return true;
-    }  
-  
-    if (number % 2 == 0)  
-        return false;
-        
-    for (var factor = 3; factor <= (long)Math.Sqrt(number); factor++)    
-    {    
-        if (number % factor == 0)    
-            return false;    
     }
-    
+
+    if (number % 2 == 0)
+        return false;
+
+    for (var factor = 3; factor <= (long)Math.Sqrt(number); factor++)
+    {
+        if (number % factor == 0)
+            return false;
+    }
+
     return true;
 }
 
@@ -34,15 +34,15 @@ bool IsFactor(long number, long suspectedFactor) => number % suspectedFactor == 
 IEnumerable<long> GetPrimeFactors(long number)
 {
     var totalLeftBranchFactors = 1L;
-    
+
     foreach (var leftBranch in GetNumbers(number, 2))
     {
-        if (!IsFactor(number, leftBranch)) 
+        if (!IsFactor(number, leftBranch))
             continue;
-        
+
         if (!IsPrime(leftBranch))
             continue;
-        
+
         var rightBranch = number / totalLeftBranchFactors;
 
         if (IsPrime(rightBranch))

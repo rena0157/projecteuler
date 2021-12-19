@@ -11,22 +11,22 @@ bool IsPrime(int number)
     }
 
     if (number % 2 == 0)
-        return false;  
-      
-    for (var factor = 3; factor <= (int)Math.Sqrt(number); factor++)  
-    {  
-        if (number % factor == 0)  
-            return false;  
-    }  
-  
-    return true;  
+        return false;
+
+    for (var factor = 3; factor <= (int)Math.Sqrt(number); factor++)
+    {
+        if (number % factor == 0)
+            return false;
+    }
+
+    return true;
 }
 
-IEnumerable<int> GetNumbers(int max)  
-{  
-    var current = 0;  
-    while (current < max)  
-        yield return current++;  
+IEnumerable<int> GetNumbers(int max)
+{
+    var current = 0;
+    while (current < max)
+        yield return current++;
 }
 
 

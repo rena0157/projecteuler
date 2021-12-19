@@ -8,7 +8,7 @@ bool IsDivisableBy(int number, params int[] divisors)
 int Solution(int maxSearchNumber, Range range)
 {
     var divisors = Enumerable.Range(range.Start.Value, range.End.Value).ToArray();
-    
+
     foreach (var number in Enumerable.Range(1, maxSearchNumber))
     {
         if (IsDivisableBy(number, divisors))

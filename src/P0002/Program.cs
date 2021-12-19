@@ -6,17 +6,17 @@ IEnumerable<int> GetFibonacci(int max)
 {
     var previous = 0;
     var current = 1;
-    
+
     while (true)
     {
         int next;
         checked { next = current + previous; }
-        
+
         if (next > max) yield break;
-        
+
         previous = current;
         current = next;
-        
+
         yield return next;
     }
 }

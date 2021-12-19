@@ -22,7 +22,7 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 class Build : NukeBuild
 {
 
-    public static int Main () => Execute<Build>(x => x.Compile);
+    public static int Main() => Execute<Build>(x => x.Compile);
 
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
     readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
@@ -30,7 +30,7 @@ class Build : NukeBuild
     [Solution] readonly Solution Solution;
 
     [Parameter("The project to run")] readonly string Project;
-    
+
     AbsolutePath SourceDirectory => RootDirectory / "src";
     AbsolutePath TestsDirectory => RootDirectory / "tests";
     AbsolutePath OutputDirectory => RootDirectory / "output";
@@ -74,7 +74,7 @@ class Build : NukeBuild
 
             OutputDirectory.GlobFiles("*.pdb").ForEach(DeleteFile);
         });
-    
+
     Target Run => _ => _
         .Executes(() =>
         {
@@ -83,12 +83,12 @@ class Build : NukeBuild
                 .SetConfiguration(Configuration.Release));
         });
 
-    
+
     Target RunAll => _ => _
         .Executes(() =>
         {
             var executables = OutputDirectory.GlobFiles("*.exe");
-            
+
             Parallel.ForEach(executables, exe =>
             {
                 var output = new List<string>();
@@ -108,6 +108,6 @@ class Build : NukeBuild
         .DependsOn(Publish)
         .Executes(() =>
         {
-            
+
         });
 }

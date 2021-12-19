@@ -13,7 +13,7 @@ const string givenNumber = @"731671765313306249192251196744265747423553491949349
     {
         var chunk = chars.Slice(startIndex, chunkSize);
         var product = 1L;
-    
+
         foreach (var digit in chunk)
         {
             product *= (long)char.GetNumericValue(digit);
