@@ -17,9 +17,6 @@ bool IsPrime(long number)
             return true;
     }
 
-    if (number % 2 == 0)
-        return false;
-
     for (var factor = 3; factor <= (long)Math.Sqrt(number); factor++)
     {
         if (number % factor == 0)
